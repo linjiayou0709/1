@@ -1,0 +1,329 @@
+{% load static %}  <!-- 載入靜態css -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旅駁包</title>
+
+    <!-- html放templates，css、照片放static -->
+    <!-- 載入靜態css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/share.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+
+</head>
+
+<body>
+    <!-- head -->
+    {% include 'includes/header.html' %} 
+    <div class="container">
+        <div class="inputblocktext center mt-2">
+            {% if user.is_authenticated %}
+            <p>Hi~ {{request.user}} 您好 您已登入~</p>
+
+            {% else %}
+            {% endif %}
+        </div> 
+    </div>
+
+    <!-- search -->
+    <div class="container">
+        <form action="">
+            <div class="row g-0 input-group input-group-lg search">
+                <div class="form-floating col-md-4">
+                    <input type="text" class="form-control " placeholder="目的地">
+                    <label for="location"><i class="bi bi-search"></i>目的地</label>
+                </div>
+                <div class="form-floating col-md-2">
+                    <input type="date" class="form-control" placeholder="出發日期">
+                    <label for="startdate"><i class="bi bi-calendar-week"></i>出發日期</label>
+                </div>
+                <div class="form-floating col-md-2">
+                    <input type="date" class="form-control" placeholder="結束日期">
+                    <label for="enddate"><i class="bi bi-calendar-week"></i>結束日期</label>
+                </div>
+                <div class="form-floating col-md-4">
+                    <select class="form-select">
+                        <option value="1">1人</option>
+                        <option value="2">2人</option>
+                        <option value="3">3人</option>
+                        <option value="4">4人</option>
+                        <option value="4plus">5人以上(含)</option>
+                    </select>
+                    <label for="number"><i class="bi bi-people-fill"></i>出遊人數</label>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- search select  -->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 mb-2">
+                <div class="form-floating">
+                    <select class="form-select" id="travelTypeSelect" aria-label="Floating label select example">
+                        <option selected>請選擇</option>
+                        <option value="親子場所">親子場所</option>
+                        <option value="室內">室內</option>
+                        <option value="室外">室外</option>
+                        <option value="團體">團體</option>
+                    </select>
+                    <label for="travelTypeSelect">旅遊型態</label>
+                </div>
+            </div>
+            <div class="col-sm-4 mb-2">
+                <div class="form-floating">
+                    <select class="form-select" id="foodTypeSelect" aria-label="Floating label select example">
+                        <option selected>請選擇</option>
+                        <option value="街邊">街邊美食</option>
+                        <option value="餐廳">餐廳美食</option>
+                    </select>
+                    <label for="foodTypeSelect">美食種類</label>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-floating">
+                    <select class="form-select" id="sortingSelect" aria-label="Floating label select example">
+                        <option selected>請選擇</option>
+                        <option value="低到高">價格低到高</option>
+                        <option value="高到低">價格高到低</option>
+                    </select>
+                    <label for="sortingSelect">排序方式</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- info -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mt-3">
+                <div class="info-box">
+                    <div class="row">
+                        <div class="col-md-5 img-over-hidd">
+                            <img src="{% static 'img/1597320584.webp' %}" alt="" class="img-fluid-h">
+                        </div>
+                        <div class="col-md-7">
+                            <div class="info-content">
+                                <div class="info-text">
+                                    <h2 class="title">大溪笠復威斯汀度假酒店</h2>
+                                    <p class="text">地址：<span>709 台南市安南區台江大道 3 段 600 號</span></p>
+                                    <p class="text">電話：<span>6-287-3335</span></p>
+                                    <p class="text">公休日：<span>08:00~12:00</span></p>
+                                    <p class="text">門票價格(每人)：<span>100元</span></p>
+                                </div>
+                                <a href="#" class="btn">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mt-3">
+                <div class="info-box">
+                    <div class="row">
+                        <div class="col-md-5 img-over-hidd">
+                            <img src="{% static 'img/1597320584.webp' %}" alt="" class="img-fluid-h">
+                        </div>
+                        <div class="col-md-7">
+                            <div class="info-content">
+                                <div class="info-text">
+                                    <h2 class="title">大溪笠復威斯汀度假酒店</h2>
+                                    <p class="text">地址：<span>709 台南市安南區台江大道 3 段 600 號</span></p>
+                                    <p class="text">電話：<span>6-287-3335</span></p>
+                                    <p class="text">公休日：<span>08:00~12:00</span></p>
+                                    <p class="text">門票價格(每人)：<span>100元</span></p>
+                                </div>
+                                <a href="#" class="btn">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mt-3">
+                <div class="info-box">
+                    <div class="row">
+                        <div class="col-md-5 img-over-hidd">
+                            <img src="{% static 'img/1597320584.webp' %}" alt="" class="img-fluid-h">
+                        </div>
+                        <div class="col-md-7">
+                            <div class="info-content">
+                                <div class="info-text">
+                                    <h2 class="title">大溪笠復威斯汀度假酒店</h2>
+                                    <p class="text">地址：<span>709 台南市安南區台江大道 3 段 600 號</span></p>
+                                    <p class="text">電話：<span>6-287-3335</span></p>
+                                    <p class="text">公休日：<span>08:00~12:00</span></p>
+                                    <p class="text">門票價格(每人)：<span>100元</span></p>
+                                </div>
+                                <a href="#" class="btn">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mt-3">
+                <div class="info-box">
+                    <div class="row">
+                        <div class="col-md-5 img-over-hidd">
+                            <img src="{% static 'img/1597320584.webp' %}" alt="" class="img-fluid-h">
+                        </div>
+                        <div class="col-md-7">
+                            <div class="info-content">
+                                <div class="info-text">
+                                    <h2 class="title">大溪笠復威斯汀度假酒店</h2>
+                                    <p class="text">地址：<span>709 台南市安南區台江大道 3 段 600 號</span></p>
+                                    <p class="text">電話：<span>6-287-3335</span></p>
+                                    <p class="text">公休日：<span>08:00~12:00</span></p>
+                                    <p class="text">門票價格(每人)：<span>100元</span></p>
+                                </div>
+                                <a href="#" class="btn">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mt-3">
+                <div class="info-box">
+                    <div class="row">
+                        <div class="col-md-5 img-over-hidd">
+                            <img src="{% static 'img/1597320584.webp' %}" alt="" class="img-fluid-h">
+                        </div>
+                        <div class="col-md-7">
+                            <div class="info-content">
+                                <div class="info-text">
+                                    <h2 class="title">大溪笠復威斯汀度假酒店</h2>
+                                    <p class="text">地址：<span>709 台南市安南區台江大道 3 段 600 號</span></p>
+                                    <p class="text">電話：<span>6-287-3335</span></p>
+                                    <p class="text">公休日：<span>08:00~12:00</span></p>
+                                    <p class="text">門票價格(每人)：<span>100元</span></p>
+                                </div>
+                                <a href="#" class="btn">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mt-3">
+                <div class="info-box">
+                    <div class="row">
+                        <div class="col-md-5 img-over-hidd">
+                            <img src="{% static 'img/1597320584.webp' %}" alt="" class="img-fluid-h">
+                        </div>
+                        <div class="col-md-7">
+                            <div class="info-content">
+                                <div class="info-text">
+                                    <h2 class="title">大溪笠復威斯汀度假酒店</h2>
+                                    <p class="text">地址：<span>709 台南市安南區台江大道 3 段 600 號</span></p>
+                                    <p class="text">電話：<span>6-287-3335</span></p>
+                                    <p class="text">公休日：<span>08:00~12:00</span></p>
+                                    <p class="text">門票價格(每人)：<span>100元</span></p>
+                                </div>
+                                <a href="#" class="btn">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mt-3">
+                <div class="info-box">
+                    <div class="row">
+                        <div class="col-md-5 img-over-hidd">
+                            <img src="{% static 'img/1597320584.webp' %}" alt="" class="img-fluid-h">
+                        </div>
+                        <div class="col-md-7">
+                            <div class="info-content">
+                                <div class="info-text">
+                                    <h2 class="title">大溪笠復威斯汀度假酒店</h2>
+                                    <p class="text">地址：<span>709 台南市安南區台江大道 3 段 600 號</span></p>
+                                    <p class="text">電話：<span>6-287-3335</span></p>
+                                    <p class="text">公休日：<span>08:00~12:00</span></p>
+                                    <p class="text">門票價格(每人)：<span>100元</span></p>
+                                </div>
+                                <a href="#" class="btn">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mt-3">
+                <div class="info-box">
+                    <div class="row">
+                        <div class="col-md-5 img-over-hidd">
+                            <img src="{% static 'img/1597320584.webp' %}" alt="" class="img-fluid-h">
+                        </div>
+                        <div class="col-md-7">
+                            <div class="info-content">
+                                <div class="info-text">
+                                    <h2 class="title">大溪笠復威斯汀度假酒店</h2>
+                                    <p class="text">地址：<span>709 台南市安南區台江大道 3 段 600 號</span></p>
+                                    <p class="text">電話：<span>6-287-3335</span></p>
+                                    <p class="text">公休日：<span>08:00~12:00</span></p>
+                                    <p class="text">門票價格(每人)：<span>100元</span></p>
+                                </div>
+                                <a href="#" class="btn">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mt-3">
+                <div class="info-box">
+                    <div class="row">
+                        <div class="col-md-5 img-over-hidd">
+                            <img src="{% static 'img/1597320584.webp' %}" alt="" class="img-fluid-h">
+                        </div>
+                        <div class="col-md-7">
+                            <div class="info-content">
+                                <div class="info-text">
+                                    <h2 class="title">大溪笠復威斯汀度假酒店</h2>
+                                    <p class="text">地址：<span>709 台南市安南區台江大道 3 段 600 號</span></p>
+                                    <p class="text">電話：<span>6-287-3335</span></p>
+                                    <p class="text">公休日：<span>08:00~12:00</span></p>
+                                    <p class="text">門票價格(每人)：<span>100元</span></p>
+                                </div>
+                                <a href="#" class="btn">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>        
+        </div>
+    </div>
+    
+    <!-- more info -->
+    <div class="container">
+        <div class="row">
+            <div class="col-12 moreinfo">
+                <a href="#">更多景點</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer -->
+    {% include 'includes/footer.html' %}
+</body>
+
+</html>
+
+<!-- 監聽選擇的方式來控制開關 -->
+<script>
+    const travelTypeSelect = document.getElementById("travelTypeSelect");
+    const foodTypeSelect = document.getElementById("foodTypeSelect");
+    const sortingSelect = document.getElementById("sortingSelect");
+
+    travelTypeSelect.addEventListener("change", function () {
+        if (travelTypeSelect.value !== "請選擇") {
+            foodTypeSelect.disabled = true;
+            sortingSelect.disabled = false;
+        } else {
+            foodTypeSelect.disabled = false;
+            sortingSelect.disabled = true;
+        }
+    });
+</script>
